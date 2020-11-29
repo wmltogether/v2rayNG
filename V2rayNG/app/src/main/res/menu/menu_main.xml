@@ -67,4 +67,9 @@
         android:icon="@drawable/ic_subscriptions_white_24dp"
         android:title="@string/title_sub_update"
         app:showAsAction="never" />
+    <item
+        android:id="@+id/switch_service"
+        android:icon="@drawable/ic_subscriptions_white_24dp"
+        android:title="@string/title_switch_service"
+        app:showAsAction="never" />
 </menu>

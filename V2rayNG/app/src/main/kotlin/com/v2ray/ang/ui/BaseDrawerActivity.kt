@@ -57,10 +57,10 @@ abstract class BaseDrawerActivity : BaseActivity() {
                         startActivity(Intent(this@BaseDrawerActivity, LogcatActivity::class.java))
                         return
                     }
-                    R.id.donate -> {
+//                    R.id.donate -> {
 //                        startActivity<InappBuyActivity>()
-                        return
-                    }
+//                        return
+//                    }
                 }
                 if (activityClass != null) {
                     startActivity(Intent(this@BaseDrawerActivity, activityClass), extras)

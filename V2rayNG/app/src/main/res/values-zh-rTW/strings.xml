@@ -193,5 +193,6 @@
         <item>VPN</item>
         <item>僅代理</item>
     </string-array>
+    <string name="title_switch_service">連接 / 斷開服務</string>
 
 </resources>

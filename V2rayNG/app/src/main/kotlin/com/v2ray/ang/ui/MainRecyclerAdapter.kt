@@ -136,6 +136,9 @@ class MainRecyclerAdapter(val activity: MainActivity) : RecyclerView.Adapter<Mai
                     }
                 }
             }
+            holder.layout_connect.setOnClickListener{
+                mActivity.toggleVPNServiceConnection();
+            }
 
             holder.infoContainer.setOnClickListener {
                 if (changeable) {
@@ -223,6 +226,7 @@ class MainRecyclerAdapter(val activity: MainActivity) : RecyclerView.Adapter<Mai
         val layout_edit = itemView.layout_edit!!
         val layout_share = itemView.layout_share
         val layout_remove = itemView.layout_remove!!
+        val layout_connect = itemView.layout_connect!!
 
         override fun onItemSelected() {
             itemView.setBackgroundColor(Color.LTGRAY)

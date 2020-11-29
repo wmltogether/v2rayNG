@@ -162,6 +162,23 @@
                             android:src="@drawable/ic_delete_black_24dp" />
 
                     </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/layout_connect"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="@dimen/layout_margin_spacing"
+                        android:background="?android:attr/selectableItemBackground"
+                        android:clickable="true"
+                        android:focusable="true">
+
+                        <ImageView
+                            android:layout_width="@dimen/png_height"
+                            android:layout_height="@dimen/png_height"
+                            android:src="@drawable/ic_start_connected_black" />
+
+                    </LinearLayout>
                 </LinearLayout>
 
                 <LinearLayout

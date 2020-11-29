@@ -56,18 +56,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         setSupportActionBar(toolbar)
 
         fab.setOnClickListener {
-            if (mainViewModel.isRunning.value == true) {
-                Utils.stopVService(this)
-            } else if (defaultDPreference.getPrefString(AppConfig.PREF_MODE, "VPN") == "VPN") {
-                val intent = VpnService.prepare(this)
-                if (intent == null) {
-                    startV2Ray()
-                } else {
-                    startActivityForResult(intent, REQUEST_CODE_VPN_PREPARE)
-                }
-            } else {
-                startV2Ray()
-            }
+            toggleVPNServiceConnection();
         }
         layout_test.setOnClickListener {
             if (mainViewModel.isRunning.value == true) {
@@ -95,6 +84,21 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         version.text = "v${BuildConfig.VERSION_NAME} (${Libv2ray.checkVersionX()})"
 
         setupViewModelObserver()
+    }
+
+    fun toggleVPNServiceConnection(){
+        if (mainViewModel.isRunning.value == true) {
+            Utils.stopVService(this)
+        } else if (defaultDPreference.getPrefString(AppConfig.PREF_MODE, "VPN") == "VPN") {
+            val intent = VpnService.prepare(this)
+            if (intent == null) {
+                startV2Ray()
+            } else {
+                startActivityForResult(intent, REQUEST_CODE_VPN_PREPARE)
+            }
+        } else {
+            startV2Ray()
+        }
     }
 
     private fun setupViewModelObserver() {
@@ -236,6 +240,10 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
 
         R.id.ping_all -> {
             mainViewModel.testAllTcping()
+            true
+        }
+        R.id.switch_service ->{
+            fab.performClick();
             true
         }
 
@@ -525,9 +533,9 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
             R.id.promotion -> {
                 Utils.openUri(this, AppConfig.promotionUrl)
             }
-            R.id.donate -> {
+//            R.id.donate -> {
 //                startActivity<InappBuyActivity>()
-            }
+//            }
             R.id.logcat -> {
                 startActivity(Intent(this, LogcatActivity::class.java))
             }

@@ -13,7 +13,7 @@ android {
 
     defaultConfig {
         applicationId "com.v2ray.ang"
-        minSdkVersion 17
+        minSdkVersion 23
         targetSdkVersion Integer.parseInt("$targetSdkVer")
         multiDexEnabled true
         versionCode 212
